@@ -49,7 +49,7 @@ public class Main extends javax.swing.JFrame {
             Pintar.pintarCirculo(jPanel1.getGraphics(), arboles.getCordeX(j), arboles.getCordeY(j), String.valueOf(arboles.getNombre(j)));
         }
     }
-    
+
     public void cargar() {
         String infoNodos = abrirArchivo("nodosAux.txt");
         iniciarMapa(infoNodos, 28, true);
@@ -218,75 +218,102 @@ public class Main extends javax.swing.JFrame {
                 Dijkstra.dijkstra(jPanel1);
                 double acumulado = Dijkstra.getAcumulado();
                 JOptionPane.showMessageDialog(this, "Su recorrido total es:\n"
-                        + (int) acumulado+ "m");
+                        + (int) acumulado + "m");
             }
         }
     }//GEN-LAST:event_jPanel1MousePressed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        switch(jComboBox2.getSelectedItem().toString()){
+
+        System.out.print(jComboBox2.getSelectedItem().toString());
+        switch (jComboBox2.getSelectedItem().toString()) {
             case "Teatro":
-                clicIzqSobreNodo(285,432);
+                clicIzqSobreNodo(285, 432);
+                break;
             case "Administración":
-                clicIzqSobreNodo(257,416);
+                clicIzqSobreNodo(257, 416);
+                break;
             case "Civil":
-                clicIzqSobreNodo(184,466);
+                clicIzqSobreNodo(184, 466);
+                break;
             case "Ciencias":
-                clicIzqSobreNodo(322,346);
+                clicIzqSobreNodo(322, 346);
+                break;
             case "Geología y Petróleos":
-                clicIzqSobreNodo(373,313);
+                clicIzqSobreNodo(373, 313);
+                break;
             case "ICB":
-                clicIzqSobreNodo(295,243);
+                clicIzqSobreNodo(295, 243);
+                break;
             case "Mecánica":
-                clicIzqSobreNodo(312,207);
+                clicIzqSobreNodo(312, 207);
+                break;
             case "Eléctrica":
-                clicIzqSobreNodo(362,147);
+                clicIzqSobreNodo(362, 147);
+                break;
             case "Química":
-                clicIzqSobreNodo(383,166);
+                clicIzqSobreNodo(383, 166);
+                break;
             case "Sistemas":
-                clicIzqSobreNodo(423,271);
+                clicIzqSobreNodo(423, 271);
+                break;
             case "Esfot":
-                clicIzqSobreNodo(504,288);
+                clicIzqSobreNodo(504, 288);
+                break;
             case "CEC":
-                clicIzqSobreNodo(643,72);
+                clicIzqSobreNodo(643, 72);
+                break;
         }
-        
-        switch(jComboBox3.getSelectedItem().toString()){
+
+        switch (jComboBox3.getSelectedItem().toString()) {
             case "Teatro":
-                clicIzqSobreNodo(285,432);
+                clicIzqSobreNodo(285, 432);
+                break;
             case "Administración":
-                clicIzqSobreNodo(257,416);
+                clicIzqSobreNodo(257, 416);
+                break;
             case "Civil":
-                clicIzqSobreNodo(184,466);
+                clicIzqSobreNodo(184, 466);
+                break;
             case "Ciencias":
-                clicIzqSobreNodo(322,346);
+                clicIzqSobreNodo(322, 346);
+                break;
             case "Geología y Petróleos":
-                clicIzqSobreNodo(373,313);
+                clicIzqSobreNodo(373, 313);
+                break;
             case "ICB":
-                clicIzqSobreNodo(295,243);
+                clicIzqSobreNodo(295, 243);
+                break;
             case "Mecánica":
-                clicIzqSobreNodo(312,207);
+                clicIzqSobreNodo(312, 207);
+                break;
             case "Eléctrica":
-                clicIzqSobreNodo(362,147);
+                clicIzqSobreNodo(362, 147);
+                break;
             case "Química":
-                clicIzqSobreNodo(383,166);
+                clicIzqSobreNodo(383, 166);
+                break;
             case "Sistemas":
-                clicIzqSobreNodo(423,271);
+                clicIzqSobreNodo(423, 271);
+                break;
             case "Esfot":
-                clicIzqSobreNodo(504,288);
+                clicIzqSobreNodo(504, 288);
+                break;
             case "CEC":
-                clicIzqSobreNodo(643,72);
+                clicIzqSobreNodo(643, 72);
+                break;
         }
-        
+
         if (nn == 2) {
-                nn = 0;
-                AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(grafo, tope, permanente, nodoFin);
-                Dijkstra.dijkstra(jPanel1);
-                double acumulado = Dijkstra.getAcumulado();
-                JOptionPane.showMessageDialog(this, "Su recorrido total es:\n"
-                        + (int) acumulado+ "m");
-            }
+            nn = 0;
+            AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(grafo, tope, permanente, nodoFin);
+            Dijkstra.dijkstra(jPanel1);
+            double acumulado = Dijkstra.getAcumulado();
+            JOptionPane.showMessageDialog(this, "Su recorrido total es:\n"
+                    + (int) acumulado + "m");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
