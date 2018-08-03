@@ -52,14 +52,13 @@ public class Main extends javax.swing.JFrame {
     
     public void cargar() {
         String infoNodos = abrirArchivo("nodosAux.txt");
-        iniciarMapa(infoNodos, 18, true);
+        iniciarMapa(infoNodos, 28, true);
 
         String infoArcos = abrirArchivo("arcosAux.txt");
-        iniciarMapa(infoArcos, 18, false);
+        iniciarMapa(infoArcos, 31, false);
     }
 
     public void clicIzqSobreNodo(int xxx, int yyy) {
-        System.out.println(xxx+" "+yyy);
         for (int j = 0; j < tope; j++) {
             if ((xxx + 2) > grafo.getCordeX(j) && xxx < (grafo.getCordeX(j) + 13) && (yyy + 2) > grafo.getCordeY(j) && yyy < (grafo.getCordeY(j) + 13)) {
                 if (nn == 0) {
@@ -124,19 +123,18 @@ public class Main extends javax.swing.JFrame {
         return infoNodos;
     }
 
-    private String calcularTiempo(double acumulado, int velocidad) {
-        int tiempoMin = (int) acumulado / velocidad;
-        int tiempoSeg = (int) (((acumulado / velocidad) - tiempoMin) * 100);
-        String tiempo = tiempoMin + " min. " + ((tiempoSeg * 60) / 100) + " seg.";
-        return tiempo;
-    }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("The Big Bang Theory - http://www.jc-mouse.net/");
@@ -164,22 +162,45 @@ public class Main extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
         );
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teatro", "Administración", "Civil", "Ciencias", "Geología y Petróleos", "ICB", "Mecánica", "Eléctrica", "Química", "Sistemas", "Esfot", "CEC" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Teatro", "Administración", "Civil", "Ciencias", "Geología y Petróleos", "ICB", "Mecánica", "Eléctrica", "Química", "Sistemas", "Esfot", "CEC" }));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)))
         );
 
         pack();
@@ -197,12 +218,76 @@ public class Main extends javax.swing.JFrame {
                 Dijkstra.dijkstra(jPanel1);
                 double acumulado = Dijkstra.getAcumulado();
                 JOptionPane.showMessageDialog(this, "Su recorrido total es:\n"
-                        + (int) acumulado + " [m]\n\nTiempo Aproximado:\n"
-                        + calcularTiempo(acumulado, 100) + " (caminando)\n"
-                        + calcularTiempo(acumulado, 200) + " (corriendo)");
+                        + (int) acumulado+ "m");
             }
         }
     }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        switch(jComboBox2.getSelectedItem().toString()){
+            case "Teatro":
+                clicIzqSobreNodo(285,432);
+            case "Administración":
+                clicIzqSobreNodo(257,416);
+            case "Civil":
+                clicIzqSobreNodo(184,466);
+            case "Ciencias":
+                clicIzqSobreNodo(322,346);
+            case "Geología y Petróleos":
+                clicIzqSobreNodo(373,313);
+            case "ICB":
+                clicIzqSobreNodo(295,243);
+            case "Mecánica":
+                clicIzqSobreNodo(312,207);
+            case "Eléctrica":
+                clicIzqSobreNodo(362,147);
+            case "Química":
+                clicIzqSobreNodo(383,166);
+            case "Sistemas":
+                clicIzqSobreNodo(423,271);
+            case "Esfot":
+                clicIzqSobreNodo(504,288);
+            case "CEC":
+                clicIzqSobreNodo(643,72);
+        }
+        
+        switch(jComboBox3.getSelectedItem().toString()){
+            case "Teatro":
+                clicIzqSobreNodo(285,432);
+            case "Administración":
+                clicIzqSobreNodo(257,416);
+            case "Civil":
+                clicIzqSobreNodo(184,466);
+            case "Ciencias":
+                clicIzqSobreNodo(322,346);
+            case "Geología y Petróleos":
+                clicIzqSobreNodo(373,313);
+            case "ICB":
+                clicIzqSobreNodo(295,243);
+            case "Mecánica":
+                clicIzqSobreNodo(312,207);
+            case "Eléctrica":
+                clicIzqSobreNodo(362,147);
+            case "Química":
+                clicIzqSobreNodo(383,166);
+            case "Sistemas":
+                clicIzqSobreNodo(423,271);
+            case "Esfot":
+                clicIzqSobreNodo(504,288);
+            case "CEC":
+                clicIzqSobreNodo(643,72);
+        }
+        
+        if (nn == 2) {
+                nn = 0;
+                AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(grafo, tope, permanente, nodoFin);
+                Dijkstra.dijkstra(jPanel1);
+                double acumulado = Dijkstra.getAcumulado();
+                JOptionPane.showMessageDialog(this, "Su recorrido total es:\n"
+                        + (int) acumulado+ "m");
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
         final Main main = new Main();
@@ -214,6 +299,10 @@ public class Main extends javax.swing.JFrame {
         main.cargar();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private static javax.swing.JLabel jLabel1;
     public static javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -1,0 +1,14 @@
+423 271 sistemas
+312 207 mecanica
+295 243 icb
+362 147 electrica
+383 166 quimica
+285 432 tetro 22
+257 416 administracion 23
+184 466 civil 24
+322 346 ciencias 25
+373 313 g y p 26 
+504 288 esfot 27
+643 72 cec
+
+ 
